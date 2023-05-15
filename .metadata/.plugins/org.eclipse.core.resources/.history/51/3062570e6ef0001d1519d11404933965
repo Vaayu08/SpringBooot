@@ -1,0 +1,18 @@
+package com.soft.Service;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.soft.Entity.Employee;
+
+
+public interface EmployeeService {
+	
+	public Employee saveEmployeeDetails(Employee emp);
+	public List<Employee> getAllEmpByService();
+	public Employee findEmpByIdService(int empId);
+	public void deleteEmpByIdService(int empId);
+	public Employee updateEmpByIdService(int empId,Employee emp);
+
+}

@@ -1,0 +1,21 @@
+package com.soft.Service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.soft.Entity.Employee;
+
+import cpm.soft.Repo.EmployeeRepo;
+@Service
+public class EmployeeServiceImpl implements EmployeeService{
+	
+	@Autowired
+	private EmployeeRepo employeeRepo;
+
+	@Override
+	public Employee saveEmployeeDetails(Employee emp) {
+		
+		return null;
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.soft.Service;
+
+import java.util.HashMap;
+
+import org.springframework.stereotype.Service;
+
+import com.soft.Entity.User;
+
+@Service
+public class UserServiceIMPL implements UserService {
+
+	@Override
+	public HashMap<String, Object> userSaveDetailService(User user) {
+		// TODO Auto-generated method stub
+		
+		try {
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

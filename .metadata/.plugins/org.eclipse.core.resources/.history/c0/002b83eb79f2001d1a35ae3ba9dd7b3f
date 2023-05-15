@@ -1,0 +1,10 @@
+package com.soft.Service;
+
+import java.util.HashMap;
+
+import com.soft.Entity.User;
+
+public interface UserService {
+
+	public HashMap<String, Object> userSaveDetailService(User user);
+}

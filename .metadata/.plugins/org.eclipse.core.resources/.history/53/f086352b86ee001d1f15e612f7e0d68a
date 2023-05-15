@@ -1,0 +1,5 @@
+package cpm.soft.Repo;
+
+public interface EmployeeRepo {
+
+}

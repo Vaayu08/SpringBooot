@@ -1,0 +1,26 @@
+package com.soft.Repo;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.soft.Entity.Employee;
+
+@Repository
+public interface EmployeeRepo extends JpaRepository<Employee, Integer>{
+	
+	@Query(value = "from Employee where empName=?1")
+	public List<Employee> findByNameRepo(String empName);
+	
+	@Query(value = " select * from emp_details where emp_salary=?1",nativeQuery = true)
+	public List<Employee> findByEmpSalary(float empSalary);
+	
+	@Query(value = " delete from emp_details where emp_name=?1",nativeQuery = true)
+	public void deleteEmpByName(String empName);
+	
+	@Query(value = "SELECT Max (emp_salary) AS 'Maximum emp_salary' from emp_details", nativeQuery = true )
+	public List<Employee> findMaxSalary(float empSalary);
+
+}

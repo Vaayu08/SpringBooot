@@ -1,0 +1,13 @@
+package com.soft.Service;
+
+import com.soft.Entity.Employee;
+
+public class EmployeeServiceImpl implements EmployeeService{
+
+	@Override
+	public Employee saveEmployeeDetails(Employee emp) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,40 @@
+package com.soft.Service;
+
+import java.util.HashMap;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.soft.Entity.User;
+import com.soft.Repo.UserRepo;
+
+@Service
+public class UserServiceIMPL implements UserService {
+	
+	@Autowired
+	private UserRepo userRepo;
+
+	@Override
+	public HashMap<String, Object> userSaveDetailService(User user) {
+		// TODO Auto-generated method stub
+		HashMap<String, Object> response = null;
+		
+		try {
+			
+			User saveduser = userRepo.save(user);
+			
+			if(saveduser!=null) {
+				response.put("message", "you have registered successfully");
+				response.put("Status", true);
+			}
+			else {
+				response.put("message", "you have not registered successfully");
+				response.put("Status", false);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+}

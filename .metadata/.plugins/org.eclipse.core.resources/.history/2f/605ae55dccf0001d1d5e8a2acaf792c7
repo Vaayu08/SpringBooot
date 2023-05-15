@@ -1,0 +1,55 @@
+package com.soft.Controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.soft.Entity.Employee;
+import com.soft.Service.EmployeeService;
+
+@RestController
+@RequestMapping("/employee")
+public class EmployeController {
+	
+	@Autowired
+	private EmployeeService employeeService;
+
+	@PostMapping("/saveEmp")
+	public Employee saveEmployee(@RequestBody Employee emp) {
+		
+		Employee savedEmp = employeeService.saveEmployeeDetails(emp);
+		
+		return emp;
+		
+	}
+	@GetMapping("/getAllEmpList")
+	public List<Employee> getAllEmp(){
+		List<Employee> empList = employeeService.getAllEmpByService();
+		return empList;
+		
+	}
+	@GetMapping("/findEmpById")
+	public Employee getEmpById(@RequestParam int id) {
+	
+		Employee emp = employeeService.findEmpByIdService(id);
+		return emp;
+		
+	}
+	@GetMapping("/deleteEmpById/{id}")
+	public  void deleteEmpById(@PathVariable int id) {
+		 employeeService.deleteEmpByIdService(id);	
+	}
+	@PostMapping("/updatEmpById/{id}")
+	public Employee updateEmpById(@RequestParam int id, @RequestBody Employee emp) {
+		Employee updateEmp= employeeService.updateEmpByIdService(id, emp);
+		return updateEmp;
+	}
+}

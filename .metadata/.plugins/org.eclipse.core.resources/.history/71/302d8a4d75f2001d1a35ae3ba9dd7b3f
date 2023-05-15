@@ -1,0 +1,5 @@
+package com.soft.Service;
+
+public interface UserService {
+
+}
